@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+
+# Install script dependencies
+apk add --no-cache jq
+
+# Download release files
+wget -qO- 'https://api.github.com/repos/genuinetools/amicontained/releases/latest' \
+| jq -r '.assets[] | .browser_download_url' \
+| while read -r url; do
+    wget -O "/tmp/${url##*/}" "${url}"
+done
+
+# Verify binary file checksum
+sha256="$(cut -d' ' -f1 '/tmp/amicontained-linux-amd64.sha256')"
+printf '%s  /tmp/amicontained-linux-amd64' "${sha256}" \
+| sha256sum -c -
+
+# Install amicontained binary
+mv '/tmp/amicontained-linux-amd64' '/usr/local/bin/amicontained'
+chmod a+x '/usr/local/bin/amicontained'
+
+# Run it!
+'/usr/local/bin/amicontained'
