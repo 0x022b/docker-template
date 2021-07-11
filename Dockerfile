@@ -1,4 +1,4 @@
-FROM alpine:3.12.4
+FROM alpine:3.14
 LABEL maintainer="Janne K <0x022b@gmail.com>"
 
 ENTRYPOINT ["/sbin/tini", "-g", "--", "/usr/local/bin/container-entrypoint"]
@@ -11,7 +11,9 @@ apk add --no-cache \
     ca-certificates \
     iptables \
     ip6tables \
-    tini
+    tini \
+    tzdata && \
+ln -s /usr/share/zoneinfo/Universal /etc/localtime
 
 VOLUME ["/app"]
 
