@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM docker.io/library/alpine:3.18
 LABEL maintainer="Janne K <0x022b@gmail.com>"
 
 ENTRYPOINT ["/sbin/tini", "-g", "--", "/usr/local/bin/container-entrypoint"]
