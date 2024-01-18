@@ -15,7 +15,7 @@ apk add --no-cache \
     su-exec \
     tini \
     tzdata && \
-ln -s /usr/share/zoneinfo/Universal /etc/localtime
+ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
 VOLUME ["/app"]
 
