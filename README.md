@@ -1,9 +1,5 @@
 # template container image
 
-![Docker Build Status](https://img.shields.io/docker/cloud/build/0x022b/template?style=flat-square)
-![Docker Image Version](https://img.shields.io/docker/v/0x022b/template?sort=semver&style=flat-square)
-![Docker Image Size](https://img.shields.io/docker/image-size/0x022b/template?sort=semver&style=flat-square)
-
 Minimal and secure [Alpine Linux][alpine] based [Docker][docker] image.
 
 ## Security
