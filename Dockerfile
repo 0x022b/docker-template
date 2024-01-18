@@ -1,6 +1,7 @@
 FROM docker.io/library/alpine:3.18
 LABEL maintainer="Janne K <0x022b@gmail.com>"
 
+ENV PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ENTRYPOINT ["/sbin/tini", "-g", "--", "/usr/local/bin/container-entrypoint"]
 CMD ["container-daemon"]
 
